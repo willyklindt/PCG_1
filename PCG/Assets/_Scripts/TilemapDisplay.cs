@@ -7,10 +7,10 @@ using UnityEngine.Tilemaps;
 public class TilemapDisplay : MonoBehaviour
 {
     [SerializeField]
-    private Tilemap groundTilemap;
+    private Tilemap groundTilemap, wallTilemap;
 
     [SerializeField]
-    private TileBase groundTiles;
+    private TileBase groundTiles, wallTop;
 
     public void createGroundTiles(IEnumerable<Vector2Int> groundPos)
     {
@@ -21,11 +21,16 @@ public class TilemapDisplay : MonoBehaviour
     {
         foreach (var pos in tilePos)
         {
-            createSingleTile(tiles, pos, tilemap);
+            createSingleTile(tilemap, tiles, pos);
         }
     }
 
-    private void createSingleTile(TileBase tiles, Vector2Int pos, Tilemap tilemap)
+    internal void createSingleWall(Vector2Int pos)
+    {
+        createSingleTile(wallTilemap, wallTop, pos);
+    }
+
+    private void createSingleTile(Tilemap tilemap, TileBase tiles, Vector2Int pos)
     {
         var localTilePos = tilemap.WorldToCell((Vector3Int)pos);
         tilemap.SetTile(localTilePos, tiles);
@@ -35,4 +40,5 @@ public class TilemapDisplay : MonoBehaviour
     {
         groundTilemap.ClearAllTiles();
     }
+
 }
