@@ -25,6 +25,7 @@ public class AgentBasedGenerator : MonoBehaviour
     public void MapGenerator()
     {
         HashSet<Vector2Int> groundPos = RandomPath();
+        tilemapDisplay.Clear();
         tilemapDisplay.createGroundTiles(groundPos);
     }
 

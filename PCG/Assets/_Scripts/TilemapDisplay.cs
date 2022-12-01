@@ -30,4 +30,9 @@ public class TilemapDisplay : MonoBehaviour
         var localTilePos = tilemap.WorldToCell((Vector3Int)pos);
         tilemap.SetTile(localTilePos, tiles);
     }
+
+    public void Clear()
+    {
+        groundTilemap.ClearAllTiles();
+    }
 }
