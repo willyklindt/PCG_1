@@ -19,13 +19,13 @@ public class AgentBasedGenerator : MonoBehaviour
     [SerializeField]
     public bool randomWalk = true;
 
+    [SerializeField]
+    private TilemapDisplay tilemapDisplay;
+
     public void MapGenerator()
     {
         HashSet<Vector2Int> groundPos = RandomPath();
-        foreach (var pos in groundPos)
-        {
-            Debug.Log(pos);
-        }
+        tilemapDisplay.createGroundTiles(groundPos);
     }
 
     protected HashSet<Vector2Int> RandomPath()
@@ -36,7 +36,7 @@ public class AgentBasedGenerator : MonoBehaviour
         {
             var path = DungeonGenerator.AgentBasedWalk(currPos, walkDist);
             groundPos.UnionWith(path);
-            if (randomWalk)
+            if (randomWalk == true)
             {
                 currPos = groundPos.ElementAt(Random.Range(0, groundPos.Count));
             }

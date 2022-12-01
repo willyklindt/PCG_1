@@ -47,7 +47,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 16
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -1915,8 +1915,8 @@ TextureImporter:
       Dungeon tileset_80: -89682212
       Dungeon tileset_19: -702215784
       Dungeon tileset_100: 923116757
-      Dungeon tileset_104: 1880885844
       Dungeon tileset_154: -1368016566
+      Dungeon tileset_104: 1880885844
       Dungeon tileset_144: 16236919
       Dungeon tileset_46: -627538964
       Dungeon tileset_31: 272563540
