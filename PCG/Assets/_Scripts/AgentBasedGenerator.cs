@@ -5,10 +5,8 @@ using UnityEngine;
 using System.Linq;
 using Random = UnityEngine.Random;
 
-public class AgentBasedGenerator : MonoBehaviour
+public class AgentBasedGenerator : DungeonStorage
 {
-    [SerializeField]
-    protected Vector2Int startPos = new Vector2Int(0, 0);
 
     [SerializeField]
     private int iterations = 30; //CHECK DEN HER
@@ -19,10 +17,7 @@ public class AgentBasedGenerator : MonoBehaviour
     [SerializeField]
     public bool randomWalk = true;
 
-    [SerializeField]
-    private TilemapDisplay tilemapDisplay;
-
-    public void MapGenerator()
+    protected override void RunMapGenerator()
     {
         HashSet<Vector2Int> groundPos = RandomPath();
         tilemapDisplay.Clear();
@@ -44,4 +39,5 @@ public class AgentBasedGenerator : MonoBehaviour
         }
         return groundPos;
     }
+
 }
