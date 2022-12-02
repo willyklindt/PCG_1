@@ -39,6 +39,7 @@ public class TilemapDisplay : MonoBehaviour
     public void Clear()
     {
         groundTilemap.ClearAllTiles();
+        wallTilemap.ClearAllTiles();
     }
 
 }
