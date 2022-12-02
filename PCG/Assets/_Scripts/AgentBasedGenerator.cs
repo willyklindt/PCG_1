@@ -9,25 +9,25 @@ public class AgentBasedGenerator : DungeonStorage
 {
 
     [SerializeField]
-    private AgentBasedGeneratedData AgentBasedParamenters;
+    protected AgentBasedGeneratedData AgentBasedParamenters;
 
     protected override void RunMapGenerator()
     {
-        HashSet<Vector2Int> groundPos = RandomPath();
+        HashSet<Vector2Int> groundPos = RandomPath(AgentBasedParamenters, startPos);
         tilemapDisplay.Clear();
         tilemapDisplay.createGroundTiles(groundPos);
         WallGenerator.createWalls(groundPos, tilemapDisplay);
     }
 
-    protected HashSet<Vector2Int> RandomPath()
+    protected HashSet<Vector2Int> RandomPath(AgentBasedGeneratedData parameters, Vector2Int pos)
     {
-        var currPos = startPos;
+        var currPos = pos;
         HashSet<Vector2Int> groundPos = new HashSet<Vector2Int>();
-        for (int i = 0; i < AgentBasedParamenters.iterations; i++)
+        for (int i = 0; i < parameters.iterations; i++)
         {
-            var path = DungeonGenerator.AgentBasedWalk(currPos, AgentBasedParamenters.walkDist);
+            var path = DungeonGenerator.AgentBasedWalk(currPos, parameters.walkDist);
             groundPos.UnionWith(path);
-            if (AgentBasedParamenters.randomWalk == true)
+            if (parameters.randomWalk == true)
             {
                 currPos = groundPos.ElementAt(Random.Range(0, groundPos.Count));
             }

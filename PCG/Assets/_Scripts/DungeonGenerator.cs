@@ -19,6 +19,21 @@ public static class DungeonGenerator
         }
         return path;
     }
+
+    public static List<Vector2Int> AgentBasedCorridors(Vector2Int startPos, int corriLength)
+    {
+        List<Vector2Int> corri = new List<Vector2Int>();
+        var direction = Direction.GetPath();
+        var currPos = startPos;
+        corri.Add(currPos);
+
+        for (int i = 0; i < corriLength; i++)
+        {
+            currPos += direction;
+            corri.Add(currPos);
+        }
+        return corri;
+    }
 }
 
 public static class Direction
