@@ -25,8 +25,9 @@ public class TilemapDisplay : MonoBehaviour
         }
     }
 
-    internal void createSingleWall(Vector2Int pos)
+    internal void createSingleWall(Vector2Int pos, string Binary)
     {
+        Debug.Log(pos´" type:")
         createSingleTile(wallTilemap, wallTop, pos);
     }
 
@@ -42,4 +43,8 @@ public class TilemapDisplay : MonoBehaviour
         wallTilemap.ClearAllTiles();
     }
 
+    internal void createSingleCornerWall(Vector2Int pos, string binaryWalls)
+    {
+        throw new NotImplementedException();
+    }
 }

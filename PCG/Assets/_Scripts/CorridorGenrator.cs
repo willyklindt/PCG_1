@@ -46,7 +46,7 @@ public class CorridorGenrator : AgentBasedGenerator
         {
             if(roomGrounds.Contains(pos) == false)
             {
-                var room = RandomPath(AgentBasedParamenters, pos);
+                var room = RandomPath(AgentBasedParameters, pos);
                 roomGrounds.UnionWith(room);
             }
         }
@@ -83,7 +83,7 @@ public class CorridorGenrator : AgentBasedGenerator
 
         foreach (var roomPos in roomToCreate)
         {
-            var roomGround = RandomPath(AgentBasedParamenters, roomPos);
+            var roomGround = RandomPath(AgentBasedParameters, roomPos);
             roomPositions.UnionWith(roomGround);
         }
         return roomPositions;

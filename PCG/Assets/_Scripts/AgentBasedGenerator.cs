@@ -9,11 +9,11 @@ public class AgentBasedGenerator : DungeonStorage
 {
 
     [SerializeField]
-    protected AgentBasedGeneratedData AgentBasedParamenters;
+    protected AgentBasedGeneratedData AgentBasedParameters;
 
     protected override void RunMapGenerator()
     {
-        HashSet<Vector2Int> groundPos = RandomPath(AgentBasedParamenters, startPos);
+        HashSet<Vector2Int> groundPos = RandomPath(AgentBasedParameters, startPos);
         tilemapDisplay.Clear();
         tilemapDisplay.createGroundTiles(groundPos);
         WallGenerator.createWalls(groundPos, tilemapDisplay);
