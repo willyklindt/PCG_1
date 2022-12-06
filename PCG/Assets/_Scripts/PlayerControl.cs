@@ -14,6 +14,7 @@ public class PlayerControl : MonoBehaviour
 
     Vector2 movement; //stores X & Y-value
 
+
     // Update is called once per frame
     void Update() //input
     {

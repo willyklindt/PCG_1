@@ -3,9 +3,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Random = UnityEngine.Random;
-
+using System.Linq;
 public class FirstRoomGenerator : AgentBasedGenerator
 {
+
     [SerializeField]
     private int minRoomWidth = 4;
     [SerializeField]
@@ -35,19 +36,31 @@ public class FirstRoomGenerator : AgentBasedGenerator
         if (RandomRooms == true)
         {
             ground = RoomRandomGen(list);
+
+
         }
         else
         {
             ground = CreateBinarySpacingRooms(list);
         }
 
-        ground = CreateBinarySpacingRooms(list);
+        //ground = CreateBinarySpacingRooms(list);
 
         List<Vector2Int> centerOfRoom = new List<Vector2Int>();
         foreach (var room in list)
         {
             centerOfRoom.Add((Vector2Int)Vector3Int.RoundToInt(room.center));
         }
+        //------------------------------------------//
+        Vector2 playerStartPos = centerOfRoom[0];
+        Vector2 goalStartPos = centerOfRoom.Last();
+
+        GameObject player = GameObject.Find("Player");
+        player.transform.position = playerStartPos;
+
+        GameObject goal = GameObject.Find("DummyGoal");
+        goal.transform.position = goalStartPos;
+        //----------------------------Ovenstående bruger System.Linq øverst//
 
         HashSet<Vector2Int> corri = Connect(centerOfRoom);
         ground.UnionWith(corri);
