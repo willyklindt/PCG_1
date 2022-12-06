@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 13312, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: Dungeon tileset_TopWall
+  m_Name: Dungeon tileset_TopWall 3
   m_EditorClassIdentifier: 
-  m_Sprite: {fileID: -553267012, guid: 99bbd58965e6d4ae1b58b498919f3a21, type: 3}
+  m_Sprite: {fileID: -646465701, guid: 99bbd58965e6d4ae1b58b498919f3a21, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Transform:
     e00: 1
